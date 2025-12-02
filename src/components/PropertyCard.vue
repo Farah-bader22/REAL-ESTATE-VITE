@@ -2,7 +2,7 @@
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useThemeStore } from '@/stores/theme';
-import { Property } from '@/types/property';
+import type { Property } from '@/types/property'; // **تم التعديل هنا: إضافة كلمة 'type'**
 import Button from 'primevue/button';
 import Tag from 'primevue/tag';
 
@@ -24,7 +24,7 @@ const isFavorite = computed(() => themeStore.isFavorite(props.property.id));
 
 // تبديل حالة المفضلة
 const toggleFavorite = (event: Event) => {
-    event.stopPropagation(); 
+    event.stopPropagation();
     themeStore.toggleFavorite(props.property.id);
 };
 
