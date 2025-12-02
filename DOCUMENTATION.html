@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation: High-End Realty SPA Template</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            background-color: #f9f9f9;
+            color: #333;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1, h2, h3 {
+            color: #D4AF37; /* Gold Color */
+            border-bottom: 2px solid #EEE;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        .intro {
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #D4AF37; /* Changed border to left for LTR aesthetic */
+            margin-bottom: 30px;
+        }
+        .code-block {
+            background-color: #272822;
+            color: #F8F8F2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        .highlight {
+            color: #D4AF37; 
+            font-weight: bold;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        /* Removed RTL section styles */
+    </style>
+</head>
+<body>
+
+    <!-- ****************************************************** -->
+    <!-- ENGLISH DOCUMENTATION SECTION (Primary for ThemeForest) -->
+    <!-- ****************************************************** -->
+
+    <h1 style="text-align: center;">Documentation: High-End Realty SPA Template</h1>
+    <p style="text-align: center;">Developed by [Your Name or Company Name]</p>
+    
+    <div class="intro">
+        <h2>Introduction</h2>
+        <p>Thank you for purchasing our premium, high-end Single Page Application (SPA) template for luxury real estate listings. This template is built on the most modern and robust technologies to ensure high performance and excellent scalability.</p>
+        
+        <h3>Tech Stack Highlights</h3>
+        <ul>
+            <li>**Core Framework:** <span class="highlight">Vue 3</span> with <span class="highlight">Composition API</span>.</li>
+            <li>**Typing:** <span class="highlight">TypeScript (TS)</span>.</li>
+            <li>**State Management:** <span class="highlight">Pinia</span>.</li>
+            <li>**UI Components:** <span class="highlight">PrimeVue</span>.</li>
+            <li>**Backend Readiness:** Pre-configured and integrated with <span class="highlight">Google Firebase</span>.</li>
+        </ul>
+    </div>
+
+    <!-- ************************************ -->
+    <h2>1. Getting Started</h2>
+    <!-- ************************************ -->
+
+    <h3>1.1 Prerequisites</h3>
+    <p>To run the project successfully, you need to have the following installed:</p>
+    <ul>
+        <li>Node.js (Version 18+ recommended).</li>
+        <li>Package manager npm or yarn.</li>
+    </ul>
+
+    <h3>1.2 Setup Instructions</h3>
+    <ol>
+        <li><strong>Install Dependencies:</strong> Open your terminal in the project directory and run:
+            <div class="code-block">npm install</div>
+        </li>
+        <li><strong>Run Development Server:</strong> To start the local server:
+            <div class="code-block">npm run dev</div>
+            <p>The application will be available at: <code>http://localhost:5173/</code></p>
+        </li>
+        <li><strong>Production Build:</strong> To create the final files ready for hosting:
+            <div class="code-block">npm run build</div>
+        </li>
+    </ol>
+
+    <!-- ************************************ -->
+    <h2>2. Theme and Color Customization</h2>
+    <!-- ************************************ -->
+
+    <p>The theme uses <span class="highlight">CSS Variables</span> for easy customization. You can control all primary colors from a single file.</p>
+    
+    <h3>2.1 Modifying Primary Colors</h3>
+    <p>Edit the following file:</p>
+    <div class="code-block">/src/assets/styles/theme.css</div>
+    <p>Adjust the following variables:</p>
+    <div class="code-block">
+        :root {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;--color-gold: <span class="highlight">#D4AF37</span>; /* Change this for main branding color */<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;--color-background: #F8F8F8; /* Light mode background */<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;--color-text: #1E1E1E; /* Primary text color */<br>
+        }<br>
+        <br>
+        html[data-theme="dark"] {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;--color-background: #121212; /* Dark mode background */<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;--color-text: #F8F8F8; /* Dark mode text color */<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;--color-card-background: #1E1E1E; /* Dark card background */<br>
+        }
+    </div>
+
+    <h3>2.2 Dark Mode Persistence</h3>
+    <p>Dark Mode state is automatically managed and saved using the <span class="highlight">Pinia Store</span> and <code>localStorage</code>. No code modification is required for this feature to work across sessions.</p>
+
+
+    <!-- ************************************ -->
+    <h2>3. Google Firebase Integration</h2>
+    <!-- ************************************ -->
+
+    <p>The template is pre-configured for Firebase to facilitate data fetching and user authentication.</p>
+    
+    <h3>3.1 Configuration File Setup</h3>
+    <p>To connect the template to your own Firebase project, follow these steps:</p>
+    <ol>
+        <li>Create a new project in the Firebase Console.</li>
+        <li>In Project Settings, register a new Web App.</li>
+        <li>Copy the essential Configuration Object data.</li>
+        <li>Paste the data into the following file:
+            <div class="code-block">/src/firebase/config.ts</div>
+        </li>
+    </ol>
+    <p>The file should look like this after your configuration is added:</p>
+    <div class="code-block">
+        const firebaseConfig = {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;apiKey: <span class="highlight">"YOUR_API_KEY_HERE"</span>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;authDomain: <span class="highlight">"YOUR_AUTH_DOMAIN_HERE"</span>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;projectId: <span class="highlight">"YOUR_PROJECT_ID_HERE"</span>,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;// ... other details ...<br>
+        };
+    </div>
+
+    <br><br>
+    <p style="text-align: center; color: #666;">We wish you success with your project!</p>
+
+
+</body>
+</html>
