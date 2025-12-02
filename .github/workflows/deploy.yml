@@ -30,4 +30,8 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
+
           cname: farah-bader22.github.io/REAL-ESTATE-VITE/
+
+          cname: farah-bader22.github.io/REAL-ESTATE-VITE/
+
