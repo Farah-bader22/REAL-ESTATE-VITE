@@ -6,7 +6,7 @@ import type { Property } from '@/types/property'; // **تم التعديل هن�
 import Button from 'primevue/button';
 import Tag from 'primevue/tag';
 
-// تعريف Prop للعقار
+
 const props = defineProps<{
     property: Property;
 }>();
@@ -14,12 +14,12 @@ const props = defineProps<{
 const router = useRouter();
 const themeStore = useThemeStore();
 
-// دالة للانتقال لصفحة التفاصيل
+
 const goToDetails = (id: string) => {
     router.push({ name: 'property-details', params: { id } });
 };
 
-// حالة المفضلة
+
 const isFavorite = computed(() => themeStore.isFavorite(props.property.id));
 
 // تبديل حالة المفضلة
