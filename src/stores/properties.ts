@@ -1,7 +1,10 @@
-
-
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
+
+
+const REPO_NAME = 'REAL-ESTATE-VITE';
+const BASE_PATH = process.env.NODE_ENV === 'production' ? `/${REPO_NAME}` : '';
+
 
 
 export interface Property {
@@ -14,7 +17,7 @@ export interface Property {
   bedrooms: number;
   bathrooms: number;
   description: string;
-  imagePath: string;
+  imagePath: string; // سيتم تعديل مساره الآن ليشمل BASE_PATH
   isFeatured: boolean;
   amenities: string[];
 }
@@ -30,7 +33,8 @@ const mockProperties: Property[] = [
     bedrooms: 3,
     bathrooms: 4,
     description: 'A breathtaking executive penthouse with panoramic ocean views. Featuring floor-to-ceiling windows, smart home technology, and private lift access. This residence defines exclusive coastal living, offering a sanctuary of light and space. Located in Miami\'s most exclusive coastal strip, minutes away from high-end dining and private yacht clubs. The master suite includes a private balcony and a spa-like en-suite bathroom with a soaking tub and dual vanities. This is where luxury meets the horizon.',
-    imagePath: '/images/P1.jpg.jpg',
+    // تم التعديل: BASE_PATH يضمن أن المسار يبدأ بـ /REAL-ESTATE-VITE/images... على الإنترنت
+    imagePath: `${BASE_PATH}/images/P1.jpg.jpg`,
     isFeatured: true,
     amenities: ['Private Elevator', 'Ocean View', 'Smart Home System', 'Concierge 24/7'],
   },
@@ -44,7 +48,7 @@ const mockProperties: Property[] = [
     bedrooms: 5,
     bathrooms: 6,
     description: 'An architectural masterpiece offering unparalleled luxury and serenity. This villa boasts an infinity pool, a meticulously maintained private garden, a home cinema, and state-of-the-art security systems. Designed by Renzo Piano, it provides ultimate privacy and seamless indoor-outdoor living, ideal for private retreats and grand entertaining. The expansive living areas open directly onto the pool deck, offering magnificent views of the surrounding mountains. Absolute privacy guaranteed.',
-    imagePath: '/images/P2.jpg.jpg',
+    imagePath: `${BASE_PATH}/images/P2.jpg.jpg`,
     isFeatured: true,
     amenities: ['Infinity Pool', 'Home Cinema', 'Gated Community', 'Smart Climate Control'],
   },
@@ -58,7 +62,7 @@ const mockProperties: Property[] = [
     bedrooms: 4,
     bathrooms: 3,
     description: 'A charming, fully renovated historic townhouse in the heart of Kensington. Blending classic British architecture with modern interior design, original fireplaces, and a secluded roof terrace overlooking the city skyline. This property offers elegance and historic charm with every modern convenience. The lower ground floor features a bespoke wine cellar and a separate staff entrance. Ideal location for cultural pursuits.',
-    imagePath: '/images/P3.jpg.jpg',
+    imagePath: `${BASE_PATH}/images/P3.jpg.jpg`,
     isFeatured: true,
     amenities: ['Roof Terrace', 'Bespoke Wine Cellar', 'Original Features', 'Prime Location'],
   },
@@ -72,7 +76,7 @@ const mockProperties: Property[] = [
     bedrooms: 4,
     bathrooms: 5,
     description: 'Experience desert luxury in this secluded villa. Designed for entertainment, it features a massive outdoor patio, stunning mountain views, a sunken lounge area, and a bespoke outdoor kitchen. Perfect for sun-drenched gatherings and serene living. The interior design maximizes natural light and features custom-made furniture throughout. A true sanctuary away from the city bustle.',
-    imagePath: '/images/P4.jpg.jpg',
+    imagePath: `${BASE_PATH}/images/P4.jpg.jpg`,
     isFeatured: false,
     amenities: ['Mountain Views', 'Outdoor Kitchen', 'Sunken Lounge', 'Extensive Patio'],
   },
@@ -86,7 +90,7 @@ const mockProperties: Property[] = [
     bedrooms: 4,
     bathrooms: 5,
     description: 'A rare opportunity to own one of the highest penthouses in Downtown Dubai. Enjoy 360-degree views of the Burj Khalifa and the coastline. Includes a private gym, office space, and access to exclusive residential services. Finished to the highest standard with marble floors and signature lighting installations. An investment in the ultimate high-rise lifestyle.',
-    imagePath: '/images/P5.jpg.jpg',
+    imagePath: `${BASE_PATH}/images/P5.jpg.jpg`,
     isFeatured: true,
     amenities: ['360-Degree Views', 'Private Gym', 'Luxury Finishes', 'Helipad Access'],
   },
@@ -100,7 +104,7 @@ const mockProperties: Property[] = [
     bedrooms: 6,
     bathrooms: 6,
     description: 'Timeless elegance meets modern design on the shores of Lake Como. This villa features a private dock, terraced gardens, and stunning views of the Italian Alps. A truly private and inspirational setting. Every bedroom is en-suite, and the property includes a dedicated wellness area with a sauna and steam room. Perfect for large families or corporate retreats.',
-    imagePath: '/images/P6.jpg.jpg',
+    imagePath: `${BASE_PATH}/images/P6.jpg.jpg`,
     isFeatured: true,
     amenities: ['Private Dock', 'Terraced Gardens', 'Wellness Area', 'Alp Views'],
   },
@@ -114,7 +118,7 @@ const mockProperties: Property[] = [
     bedrooms: 3,
     bathrooms: 3,
     description: 'Contemporary townhouse positioned directly on the riverfront. Features floor-to-ceiling glass, high-end Gaggenau appliances, and a secluded plunge pool. Ideal for the discerning urban professional. The multi-level layout ensures maximum light and views from all primary rooms. Low-maintenance luxury living at its best.',
-    imagePath: '/images/P7.jpg.jpg',
+    imagePath: `${BASE_PATH}/images/P7.jpg.jpg`,
     isFeatured: false,
     amenities: ['Riverfront Access', 'Plunge Pool', 'Gaggenau Kitchen', 'Multi-Level Design'],
   },
@@ -128,7 +132,7 @@ const mockProperties: Property[] = [
     bedrooms: 5,
     bathrooms: 7,
     description: 'The pinnacle of luxury in the heart of Manhattan. Offering unparalleled views of Central Park and the city skyline. Features a custom wine cellar, private screening room, and 24/7 concierge service. Custom-commissioned artwork and furniture are included in the sale. The ultimate status-symbol and a masterpiece of interior design.',
-    imagePath: '/images/P8.jpg.jpg',
+    imagePath: `${BASE_PATH}/images/P8.jpg.jpg`,
     isFeatured: true,
     amenities: ['Central Park Views', 'Private Screening Room', 'Wine Cellar', 'Staff Quarters'],
   }
